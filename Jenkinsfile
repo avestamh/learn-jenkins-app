@@ -32,14 +32,14 @@ pipeline {
                 
                 sh '''
                 test -f build/index.html
-                npm test
+                npm test -- --watchAll=false
                 '''
             }
         }
     }
     post{
         always{
-            junit 'test-results/juinit.xml'
+            junit 'test-results/junit.xml'
         }
     }
 
